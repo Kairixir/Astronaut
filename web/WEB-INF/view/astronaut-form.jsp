@@ -61,6 +61,15 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <label>Superschopnost: </label>
+                    </td>
+                    <td><form:input type="text" path="superPower"/></td>
+                    <td>
+                        <form:errors path="superPower" cssClass="error" />
+                    </td>
+                </tr>
+                <tr>
                     <td><label></label></td>
                     <td><input type="submit" value="Add" class="save"></td>
                 </tr>
@@ -69,7 +78,7 @@
         </form:form>
         <div style="clear; both;"></div>
         <p>
-            <a href="${pageContext.request.contextPath}/astronaut/list">Back to list</a>
+            <a href="${pageContext.request.contextPath}/astronaut/list">Zpět na seznam</a>
         </p>
 
     </div>

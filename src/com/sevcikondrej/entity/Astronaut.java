@@ -36,13 +36,17 @@ public class Astronaut {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
+    @Column(name = "superpower")
+    private String superPower;
+
     public Astronaut() {
     }
 
-    public Astronaut(String firstName, String lastName, LocalDate dateOfBirth) {
+    public Astronaut(String firstName, String lastName, LocalDate dateOfBirth, String superPower) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        this.superPower = superPower;
     }
 
     public int getId() {
@@ -75,6 +79,14 @@ public class Astronaut {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getSuperPower() {
+        return superPower;
+    }
+
+    public void setSuperPower(String superPower) {
+        this.superPower = superPower;
     }
 
     @Override
