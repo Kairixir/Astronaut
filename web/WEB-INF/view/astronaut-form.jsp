@@ -38,19 +38,27 @@
                         <label>Křestní jméno: </label>
                     </td>
                     <td><form:input path="firstName"/></td>
+                    <td>
+                        <form:errors path="firstName" cssClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <label>Přijmení: </label>
                     </td>
                     <td><form:input path="lastName"/></td>
+                    <td>
+                        <form:errors path="lastName" cssClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <label>Datum narození: </label>
                     </td>
                     <td><form:input type="date" path="dateOfBirth"/></td>
-
+                    <td>
+                        <form:errors path="dateOfBirth" cssClass="error"/>
+                    </td>
                 </tr>
                 <tr>
                     <td><label></label></td>
