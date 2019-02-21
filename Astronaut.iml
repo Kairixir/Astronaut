@@ -49,5 +49,6 @@
     <orderEntry type="library" name="jstl-1.2" level="project" />
     <orderEntry type="library" name="mchange-commons-java-0.2.11" level="project" />
     <orderEntry type="library" name="hibernate-validator-6.0.15.Final" level="project" />
+    <orderEntry type="library" name="joda-time-2.10.1" level="project" />
   </component>
 </module>

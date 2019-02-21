@@ -46,6 +46,7 @@
                 </tr>
                 <%--Loop over and print astronauts--%>
                 <c:forEach var="tempAstronaut" items="${astronauts}">
+
                     <%--construct an update link with customer id--%>
                     <c:url var="updateLink" value="/astronaut/showFormForUpdate">
                         <c:param name="astronautId" value="${tempAstronaut.id}"/>

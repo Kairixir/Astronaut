@@ -41,11 +41,7 @@ public class AstronautDAOImpl implements AstronautDAO {
         //get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
         //fixing date - date that is entered was writtten in the database one day behind
-        java.util.Date datum = theAstronaut.getDateOfBirth();
-        Calendar c = Calendar.getInstance();
-        c.setTime(datum);
-        c.add(Calendar.DATE, 1);
-        Date correctDate = new Date(c.getTimeInMillis());
+        LocalDate correctDate= theAstronaut.getDateOfBirth().plusDays(1);
         theAstronaut.setDateOfBirth(correctDate);
         //save/update the astronaut
         currentSession.saveOrUpdate(theAstronaut);

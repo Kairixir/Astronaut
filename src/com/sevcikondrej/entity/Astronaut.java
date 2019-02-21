@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -33,12 +34,12 @@ public class Astronaut {
     @Past(message = "zadané datum není v minulosti")
     @NotNull(message = "je vyžadováno")
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     public Astronaut() {
     }
 
-    public Astronaut(String firstName, String lastName, Date dateOfBirth) {
+    public Astronaut(String firstName, String lastName, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -68,11 +69,11 @@ public class Astronaut {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
