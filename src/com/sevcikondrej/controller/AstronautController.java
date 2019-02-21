@@ -20,7 +20,7 @@ public class AstronautController {
     private AstronautService astronautService;
 
     @GetMapping("list")
-    public String listCustomers(Model theModel){
+    public String listAstronauts(Model theModel){
 
         //get astronauts from the service
          List<Astronaut> theAstronauts = astronautService.getAstronauts();

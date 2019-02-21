@@ -64,8 +64,8 @@ public class AstronautDAOImpl implements AstronautDAO {
         //get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
         //delete astronaut
-        Query theQuery = currentSession.createQuery("delete from Astronaut where id=:customerId");
-        theQuery.setParameter("customerId",theId);
+        Query theQuery = currentSession.createQuery("delete from Astronaut where id=:astronautId");
+        theQuery.setParameter("astronautId",theId);
         //executing the update
         theQuery.executeUpdate();
     }

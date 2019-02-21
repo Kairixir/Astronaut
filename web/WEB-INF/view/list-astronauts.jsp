@@ -16,83 +16,22 @@
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/perfect-scrollbar/perfect-scrollbar.css">
+
 </head>
 <body>
-
+<div class="center-content-area">
 
     <div id="limiter">
-        <div id="container-table100">
+
             <div id="wrapper">
                 <div id="header">
                     <h2>Astronauti</h2>
                 </div>
             </div>
-            <div id="wrap-table100">
-                <div class="table100 ver1">
-
-                    <div class="wrap-table100-nextcols js-pscroll">
-                        <div class="table100-nextcols">
-                            <table>
-                                <thead>
-                                <tr class="row100 head">
-                                    <th>Křestní jméno</th>
-                                    <th>Přijmení</th>
-                                    <th>Datum narození</th>
-                                    <th>Superschopnost</th>
-                                    <th>Akce</th>
-                                </tr>
-                                </thead>
-                                <%--Loop over and print astronauts--%>
-                                <c:forEach var="tempAstronaut" items="${astronauts}">
-
-                                    <%--construct an update link with customer id--%>
-                                <c:url var="updateLink" value="/astronaut/showFormForUpdate">
-                                    <c:param name="astronautId" value="${tempAstronaut.id}"/>
-                                </c:url>
-                                <c:url var="deleteLink" value="/astronaut/delete">
-                                    <c:param name="astronautId" value="${tempAstronaut.id}"/>
-                                </c:url>
-
-                                <tr>
-                                    <td>${tempAstronaut.firstName}</td>
-                                    <td>${tempAstronaut.lastName}</td>
-                                    <td>${tempAstronaut.dateOfBirth}</td>
-                                    <td>${tempAstronaut.superPower}</td>
-                                    <td>
-                                            <%--dipsplay the update link--%>
-                                        <a href="${updateLink}">Upravit</a>
-                                        |
-                                            <%--display the delte link--%>
-                                        <a href="${deleteLink}" onclick="if (!( confirm('Opravdu chcete vymazat ${tempAstronaut.firstName} ${tempAstronaut.lastName}?')))return false">Vymazat</a>
-
-                                    </td>
-                                    <td></td>
-                                </tr>
-
-                                </c:forEach>
-                        </div>
-                    </div>
 
 
 
-
-
-                </div>
-            </div>
-        </div>
     </div>
-
-
-
 
 
     <div id="container">
@@ -108,14 +47,51 @@
                     <input type="submit" value="Hledat" class="add-button"/>
                 </form:form>
 
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Křestní jméno</th>
+                        <th>Přijmení</th>
+                        <th>Datum narození</th>
+                        <th>Superschopnost</th>
+                        <th>Akce</th>
+                    </tr>
+                    </thead>
+                    <%--Loop over and print astronauts--%>
+                    <c:forEach var="tempAstronaut" items="${astronauts}">
 
+                        <%--construct an update link with customer id--%>
+                        <c:url var="updateLink" value="/astronaut/showFormForUpdate">
+                            <c:param name="astronautId" value="${tempAstronaut.id}"/>
+                        </c:url>
+                        <c:url var="deleteLink" value="/astronaut/delete">
+                            <c:param name="astronautId" value="${tempAstronaut.id}"/>
+                        </c:url>
+
+                        <tr>
+                            <td>${tempAstronaut.firstName}</td>
+                            <td>${tempAstronaut.lastName}</td>
+                            <td>${tempAstronaut.dateOfBirth}</td>
+                            <td>${tempAstronaut.superPower}</td>
+                            <td>
+                                    <%--dipsplay the update link--%>
+                                <a href="${updateLink}">Upravit</a>
+                                |
+                                    <%--display the delete link--%>
+                                <a href="${deleteLink}" onclick="if (!( confirm('Opravdu chcete vymazat ${tempAstronaut.firstName} ${tempAstronaut.lastName}?')))return false">Vymazat</a>
+
+                            </td>
+                            <td></td>
+                        </tr>
+
+                    </c:forEach>
 
 
 
             </table>
         </div>
     </div>
-
+</div>
 
 </body>
 </html>
