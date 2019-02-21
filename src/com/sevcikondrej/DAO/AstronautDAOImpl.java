@@ -10,8 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.sql.Date;
 import java.time.Clock;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 @Repository
 public class AstronautDAOImpl implements AstronautDAO {
@@ -38,7 +41,7 @@ public class AstronautDAOImpl implements AstronautDAO {
         //get current hibernate session
         Session currentSession = sessionFactory.getCurrentSession();
         //fixing date - date that is entered was writtten in the database one day behind
-        java.sql.Date datum = theAstronaut.getDateOfBirth();
+        java.util.Date datum = theAstronaut.getDateOfBirth();
         Calendar c = Calendar.getInstance();
         c.setTime(datum);
         c.add(Calendar.DATE, 1);

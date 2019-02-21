@@ -1,11 +1,13 @@
 package com.sevcikondrej.entity;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
-import java.sql.Date;
+import java.util.Date;
 
 
 @Entity
@@ -17,18 +19,19 @@ public class Astronaut {
     @Column(name = "id")
     private int id;
 
-    @NotNull(message = "is required")
-    @Size(min = 1, message = "is required")
+    @NotNull(message = "je vyžadováno")
+    @Size(min = 1, message = "je vyžadováno")
     @Column(name = "first_name")
     private String firstName;
 
-    @NotNull(message = "is required")
-    @Size(min = 1, message = "is required")
+    @NotNull(message = "je vyžadováno")
+    @Size(min = 1, message = "je vyžadováno")
     @Column(name = "last_name")
     private String lastName;
 
-    @NotNull(message = "is required")
-    @Past(message = "is required")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Past(message = "zadané datum není v minulosti")
+    @NotNull(message = "je vyžadováno")
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
