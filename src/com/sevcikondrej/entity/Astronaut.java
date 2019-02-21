@@ -3,8 +3,10 @@ package com.sevcikondrej.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.sql.Date;
+
 
 @Entity
 @Table(name = "astronaut")
@@ -26,6 +28,7 @@ public class Astronaut {
     private String lastName;
 
     @NotNull(message = "is required")
+    @Past(message = "is required")
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 

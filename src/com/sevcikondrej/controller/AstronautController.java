@@ -5,6 +5,7 @@ import com.sevcikondrej.service.AstronautService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,7 +23,7 @@ public class AstronautController {
     public String listCustomers(Model theModel){
 
         //get astronauts from the service
-        List<Astronaut> theAstronauts = astronautService.getAstronauts();
+         List<Astronaut> theAstronauts = astronautService.getAstronauts();
 
         //add the astronauts to the model
         theModel.addAttribute("astronauts", theAstronauts);
@@ -41,13 +42,19 @@ public class AstronautController {
     }
 
     @PostMapping("/addAstronaut")
-    public String addAstronaut(@ModelAttribute("astronaut") Astronaut theAstronaut){
+    public String addAstronaut(@Valid @ModelAttribute("astronaut") Astronaut theAstronaut, BindingResult bindingResult){
 
-        //save the astronaut using service
-        astronautService.addAstronaut(theAstronaut);
+        if (bindingResult.hasErrors()) {
+            return "astronaut-form";
+        }
+        else{
+            //save the astronaut using service
+            astronautService.addAstronaut(theAstronaut);
 
-        return "redirect:/astronaut/list";
-    }
+            return "redirect:/astronaut/list";
+
+        }
+        }
 
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("astronautId") int theId, Model theModel){

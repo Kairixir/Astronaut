@@ -57,7 +57,7 @@
                     </td>
                     <td><form:input type="date" path="dateOfBirth"/></td>
                     <td>
-                        <form:errors path="dateOfBirth" cssClass="error"/>
+                        <form:errors path="dateOfBirth" cssClass="error" />
                     </td>
                 </tr>
                 <tr>
